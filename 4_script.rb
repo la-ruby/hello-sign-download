@@ -1,3 +1,4 @@
+require 'json'
 
 tot = Dir["data/files/*"].length
 counter = 1
