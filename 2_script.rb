@@ -5,7 +5,7 @@ client = HelloSign::Client.new(api_key: ENV['HELLOSIGN_API_KEY'])
 list = client.get_signature_requests(page_size: 100)
 total_pages = list.data["list_info"]["num_pages"]
 puts "total_pages #{total_pages}"
-page = 25
+page = 27
 while page < total_pages + 1
   puts "page #{page}"
   req = client.get_signature_requests(page_size: 100, page: page)
