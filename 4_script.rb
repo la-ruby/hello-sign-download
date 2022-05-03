@@ -19,7 +19,7 @@ Dir.each_child('./data/files') do |file|
     next
   end
   puts "#{counter}/#{tot} #{iso8601}_#{srid}.pdf"
-  FileUtils.cp "./data/files/#{srid}.pdf" "./data/dated_files/#{iso8601}_#{srid}.pdf"
+  `cp ./data/files/#{srid}.pdf ./data/dated_files/#{iso8601}_#{srid}.pdf`
   counter += 1
 end
 
