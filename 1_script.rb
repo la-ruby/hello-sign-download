@@ -11,6 +11,7 @@ def get_all_requests(client)
   signature_requests = []
   page = 1
   total_pages = get_total_pages(client)
+  raise 'Abc'
 
   while page < total_pages + 1
      puts "iteration bbb"
