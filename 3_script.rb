@@ -15,12 +15,12 @@ Dir.each_child('./data/signature_requests') do |srid|
     file_bin = client.signature_request_files :signature_request_id => srid
   rescue HelloSign::Error::Conflict => err
     file_bin = nil
-    open("./data/files/#{srid}.error", "wb") do |file|
+    open("./data/files/#{srid}.error.txt", "wb") do |file|
       file.write("HelloSign::Error::Conflict")
     end    
   end
   if file_bin
-    open("./data/files/#{srid}", "wb") do |file|
+    open("./data/files/#{srid}.pdf", "wb") do |file|
       file.write(file_bin)
     end
   end
