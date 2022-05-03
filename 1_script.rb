@@ -35,7 +35,7 @@ def download_requests(client, requests)
       next
     end
     fname = clear_title(req["title"])
-    File.open("HelloSign-#{fname}", "wb") do |file|
+    File.open("files/HelloSign-#{fname}", "wb") do |file|
       file.write(download[:body])
     end
   end
