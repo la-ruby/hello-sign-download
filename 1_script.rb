@@ -5,7 +5,7 @@ API_KEY = ENV['HELLOSIGN_API_KEY']
 
 def get_total_pages(client)
   debugger
-  list = client.get_signature_requests(page_size: 100)
+  list = client.get_signature_requests(page_size: 99)
   list.data["list_info"]["num_pages"]
 end
 
@@ -15,9 +15,10 @@ def get_all_requests(client)
   total_pages = get_total_pages(client)
 
   while page < total_pages + 1
-     puts "iteration bbb"
-     req = client.get_signature_requests(page_size: 100, page: page)
+     puts "iteration aaa"
+     req = client.get_signature_requests(page_size: 99, page: page)
      signature_requests << req.data["signature_requests"]
+     debugger
      page += 1
   end
 
@@ -26,7 +27,7 @@ end
 
 def download_requests(client, requests)
   requests.each do |req|
-    puts "iteration aaa"
+    puts "iteration bbb"
     begin
       puts "-- Downloading #{req['final_copy_uri']}"
       download = client.get(
@@ -49,4 +50,5 @@ def clear_title(str)
 end
 
 client = HelloSign::Client.new(api_key: API_KEY)
-download_requests(client, get_all_requests(client))
+get_all_requests(client)
+# download_requests(client, get_all_requests(client))
