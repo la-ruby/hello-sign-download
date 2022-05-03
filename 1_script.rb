@@ -8,11 +8,10 @@ def get_total_pages(client)
 end
 
 def get_all_requests(client)
+  debugger
   signature_requests = []
   page = 1
   total_pages = get_total_pages(client)
-  debugger
-  raise 'Abc'
 
   while page < total_pages + 1
      puts "iteration bbb"
