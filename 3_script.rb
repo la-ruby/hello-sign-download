@@ -13,6 +13,6 @@ Dir.each_child('./data/signature_requests') do |srid|
     file.write(file_bin)
   end
   counter += 1
-  sleep 0.1
+  sleep 2.4
 end
 
