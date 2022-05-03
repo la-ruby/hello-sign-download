@@ -1,7 +1,7 @@
 require 'hello_sign'
 require 'debug'
 
-Dir.each_child('./files/signature_requests') do |filename|
+Dir.each_child('./data/signature_requests') do |filename|
   puts filename
 end
 
