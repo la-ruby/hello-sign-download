@@ -2,7 +2,7 @@ require 'json'
 require 'time'
 require 'debug'
 
-tot = Dir["data/files/*"].length
+tot = Dir["data/files/*.pdf"].length
 counter = 1
 Dir.each_child('./data/files') do |file|
   srid = file.sub('.pdf','')
