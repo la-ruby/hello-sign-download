@@ -44,6 +44,6 @@ def clear_title(str)
   str += '.pdf'
 end
 
-puts tracing
+puts "tracing"
 # client = HelloSign::Client.new(api_key: API_KEY)
 #download_requests(client, get_all_requests(client))
