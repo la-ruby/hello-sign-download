@@ -1,4 +1,5 @@
 require 'json'
+require 'debug'
 
 tot = Dir["data/files/*"].length
 counter = 1
