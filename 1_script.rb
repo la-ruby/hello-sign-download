@@ -45,5 +45,6 @@ def clear_title(str)
 end
 
 puts "tracing"
+puts API_KEY
 # client = HelloSign::Client.new(api_key: API_KEY)
 #download_requests(client, get_all_requests(client))
