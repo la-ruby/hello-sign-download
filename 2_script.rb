@@ -10,8 +10,8 @@ while page < total_pages + 1
   puts "page #{page}"
   req = client.get_signature_requests(page_size: 100, page: page)
   req.data["signature_requests"].each do |sr|
-    debugger if sr['signature_request_id'].empty?
-    next if sr['signature_request_id'].empty?
+    debugger if sr['signature_request_id'].nil? && sr['signature_request_id'].empty?
+    next if sr['signature_request_id'].nil? && sr['signature_request_id'].empty?
     puts "Tracing sr['signature_request_id'] #{sr['signature_request_id']}"
     if !File.exist?("data/signature_requests/#{sr['signature_request_id']}")
       File.open("data/signature_requests/#{sr['signature_request_id']}", "w") do |file|
