@@ -12,8 +12,10 @@ while page < total_pages + 1
   req.data["signature_requests"].each do |sr|
     debugger if sr['signature_request_id'].empty?
     puts "Tracing sr['signature_request_id'] #{sr['signature_request_id']}"
-    File.open("data/signature_requests/#{sr['signature_request_id']}", "w") do |file|
-      file.write(sr.to_json)
+    if !File.exist?("data/signature_requests/#{sr['signature_request_id']}")
+      File.open("data/signature_requests/#{sr['signature_request_id']}", "w") do |file|
+        file.write(sr.to_json)
+      end
     end
   end
   page += 1
