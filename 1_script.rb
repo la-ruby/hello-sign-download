@@ -1,3 +1,5 @@
+require 'hello_sign'
+
 API_KEY = 'YOUR_API_KEY_HERE'
 
 def get_total_pages(client)
