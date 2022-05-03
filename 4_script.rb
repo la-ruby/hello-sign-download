@@ -14,6 +14,6 @@ Dir.each_child('./data/files') do |file|
     next
   end
   puts "#{counter}/#{tot} #{iso8601}_#{srid}.pdf"
-  count += 1
+  counter += 1
 end
 
