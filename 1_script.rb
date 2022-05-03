@@ -1,6 +1,6 @@
 require 'hello_sign'
 
-API_KEY = 'YOUR_API_KEY_HERE'
+API_KEY = ENV['HELLOSIGN_API_KEY']
 
 def get_total_pages(client)
   list = client.get_signature_requests(page_size: 100)
