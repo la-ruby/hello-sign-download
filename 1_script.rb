@@ -1,5 +1,4 @@
 require 'hello_sign'
-require 'debugger'
 
 API_KEY = ENV['HELLOSIGN_API_KEY']
 
