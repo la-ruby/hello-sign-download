@@ -5,7 +5,8 @@ require 'debug'
 tot = Dir["data/files/*"].length
 counter = 1
 Dir.each_child('./data/files') do |file|
-  created_at = JSON.parse(File.open("./data/signature_requests/#{file.sub('.pdf','')}").read)['created_at']
+  srid = file.sub('.pdf','')
+  created_at = JSON.parse(File.open("./data/signature_requests/#{srid}").read)['created_at']
   iso8601 = Time.at(created_at).utc.iso8601
   if File.exist?("./data/dated_files/#{iso8601}_#{srid}.pdf")
     puts "#{counter}/#{tot} Skip #{iso8601}_#{srid}.pdf"
