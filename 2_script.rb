@@ -4,6 +4,7 @@ require 'debug'
 client = HelloSign::Client.new(api_key: ENV['HELLOSIGN_API_KEY'])
 list = client.get_signature_requests(page_size: 99)
 total_pages = list.data["list_info"]["num_pages"]
+puts "total_pages #{total_pages}"
 page = 1
 while page < total_pages + 1
   puts "page #{page}"
@@ -13,4 +14,5 @@ while page < total_pages + 1
       file.write(sr.to_json)
     end
   end
+  page += 1
 end
