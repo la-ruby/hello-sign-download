@@ -5,7 +5,7 @@ client = HelloSign::Client.new(api_key: ENV['HELLOSIGN_API_KEY'])
 counter = 1
 tot = Dir["data/signature_requests/*"].length
 Dir.each_child('./data/signature_requests') do |srid|
-  if File.exist?("./data/files/#{srid}")
+  if File.exist?("./data/files/#{srid}.pdf")
     puts "#{counter}/#{tot} Skip #{srid}"
     counter += 1
     next
