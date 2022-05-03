@@ -11,9 +11,18 @@ Dir.each_child('./data/signature_requests') do |srid|
     next
   end
   puts "#{counter}/#{tot} Downloading #{srid}"
-  file_bin = client.signature_request_files :signature_request_id => srid
-  open("./data/files/#{srid}", "wb") do |file|
-    file.write(file_bin)
+  begin
+    file_bin = client.signature_request_files :signature_request_id => srid
+  rescue HelloSign::Error::Conflict => err
+    file_bin = nil
+    open("./data/files/#{srid}.error", "wb") do |file|
+      file.write("HelloSign::Error::Conflict")
+    end    
+  end
+  if file_bin
+    open("./data/files/#{srid}", "wb") do |file|
+      file.write(file_bin)
+    end
   end
   counter += 1
   sleep 2.4
