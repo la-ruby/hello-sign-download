@@ -4,12 +4,12 @@ require 'debug'
 API_KEY = ENV['HELLOSIGN_API_KEY']
 
 def get_total_pages(client)
+  debugger
   list = client.get_signature_requests(page_size: 100)
   list.data["list_info"]["num_pages"]
 end
 
 def get_all_requests(client)
-  debugger
   signature_requests = []
   page = 1
   total_pages = get_total_pages(client)
