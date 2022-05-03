@@ -13,6 +13,7 @@ def get_all_requests(client)
   total_pages = get_total_pages(client)
 
   while page < total_pages + 1
+     puts "iteration bbb"
      req = client.get_signature_requests(page_size: 100, page: page)
      signature_requests << req.data["signature_requests"]
      page += 1
@@ -23,7 +24,7 @@ end
 
 def download_requests(client, requests)
   requests.each do |req|
-    puts "iteration 1651602945"
+    puts "iteration aaa"
     begin
       puts "-- Downloading #{req['final_copy_uri']}"
       download = client.get(
