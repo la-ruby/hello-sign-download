@@ -23,6 +23,7 @@ end
 
 def download_requests(client, requests)
   requests.each do |req|
+    puts "iteration 1651602945"
     begin
       puts "-- Downloading #{req['final_copy_uri']}"
       download = client.get(
